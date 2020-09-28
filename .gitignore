@@ -1,3 +1,4 @@
 # Project exclude paths
 /baseAnnotation/target/
 /springAop/target/
+.idea
