@@ -1,7 +1,7 @@
 package com.atguigu.spring5.aopanno;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 //增强类
@@ -13,5 +13,27 @@ public class UserProxy {
     @Before("execution(* com.atguigu.spring5.aopanno.User.add(..))")
     public void before(){
         System.out.println("before...");
+    }
+
+    @After(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    public void after(){
+        System.out.println("after...");
+    }
+
+    @AfterReturning(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    public void afterReturning(){
+        System.out.println("afterReturning...");
+    }
+
+    @AfterThrowing(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    public void afterThrowing(){
+        System.out.println("afterThrowing...");
+    }
+
+    @Around(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+        System.out.println("before around...");
+        proceedingJoinPoint.proceed();
+        System.out.println("after around...");
     }
 }

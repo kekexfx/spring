@@ -6,11 +6,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAop {
+    ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
+    User user = context.getBean("user", User.class);
 
     @Test
     public void testAopAnno(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
-        User user = context.getBean("user", User.class);
         user.add();
     }
 
