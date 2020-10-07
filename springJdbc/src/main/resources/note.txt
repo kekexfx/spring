@@ -1,0 +1,9 @@
+JDBCTemplate(概念个准备)
+    1 什么是JdbcTemplate
+        Spring框架对JDBC模版进行封装，使用JdbcTemplate方便对数据库操作
+    2 准备工作
+        1 引入相关jar包
+        2 在spring配置文件中配置连接池信息
+        3 配置JdbcTemplate对象，注入DataSource
+        4 创建service类，创建dao类，在dao中注入jdbcTemplate对象，实现具体操作
+
