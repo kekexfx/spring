@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springAop" />
-        <module name="baseXml" />
         <module name="baseAnnotation" />
+        <module name="baseXml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

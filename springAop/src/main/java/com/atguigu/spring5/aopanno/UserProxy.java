@@ -2,15 +2,23 @@ package com.atguigu.spring5.aopanno;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 //增强类
 @Component
 @Aspect //生成一个代理对象
+@Order(4)
 public class UserProxy {
 
+
+    //抽取公共切入点
+    @Pointcut(value = "execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    public void pointdemo(){
+
+    }
     //before表示前置通知
-    @Before("execution(* com.atguigu.spring5.aopanno.User.add(..))")
+    @Before("pointdemo()")
     public void before(){
         System.out.println("before...");
     }
