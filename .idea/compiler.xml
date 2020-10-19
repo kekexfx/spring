@@ -7,10 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springJdbc" />
         <module name="springAop" />
         <module name="baseAnnotation" />
         <module name="baseXml" />
+      </profile>
+      <profile name="Annotation profile for springJdbc" enabled="true">
+        <sourceOutputDir name="../../springJdbc/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../springJdbc/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springJdbc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
