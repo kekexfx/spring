@@ -2,7 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="user" class="com.atguigu.spring5.User"></bean>
 
@@ -38,4 +40,62 @@
             </bean>
         </property>
     </bean>
+
+    <!--集合类型属性的注入-->
+    <bean id="stu" class="com.atguigu.spring5.collectiontype.Stu">
+        <property name="cources">
+            <array>
+                <value>java</value>
+                <value>mysql</value>
+                <value>spring</value>
+            </array>
+        </property>
+        <property name="list">
+            <array>
+                <value>tom</value>
+                <value>jerry</value>
+                <value>mac</value>
+            </array>
+        </property>
+        <property name="maps">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+        </property>
+        <property name="sets">
+            <set>
+                <value>lulu</value>
+                <value>chenchen</value>
+                <value>dandan</value>
+            </set>
+        </property>
+        <!--注入集合类型，里面的是对象-->
+        <property name="kechengs">
+            <set>
+                <ref bean = "cource1"></ref>
+                <ref bean = "cource2"></ref>
+            </set>
+        </property>
+    </bean>
+    <bean id="cource1" class="com.atguigu.spring5.collectiontype.Cources">
+        <property name="cname" value="spring5框架"></property>
+    </bean>
+    <bean id="cource2" class="com.atguigu.spring5.collectiontype.Cources">
+        <property name="cname" value="mybatis框架"></property>
+    </bean>
+
+    <!--提取-->
+    <util:list id = "bookList">
+        <value>haha</value>
+        <value>heihei</value>
+        <value>henhen</value>
+    </util:list>
+
+    <bean id="book1" class="com.atguigu.spring5.collectiontype.Book1">
+        <property name="list" ref="bookList"></property>
+    </bean>
+
+
+
 </beans>

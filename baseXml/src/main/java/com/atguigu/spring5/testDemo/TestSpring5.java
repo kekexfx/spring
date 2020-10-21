@@ -4,6 +4,8 @@ import com.atguigu.spring5.Book;
 import com.atguigu.spring5.Order;
 import com.atguigu.spring5.User;
 import com.atguigu.spring5.bean.Emp;
+import com.atguigu.spring5.collectiontype.Book1;
+import com.atguigu.spring5.collectiontype.Stu;
 import com.atguigu.spring5.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -44,5 +46,18 @@ public class TestSpring5 {
     public void testDept(){
         Emp emp = context.getBean("emp", Emp.class);
         emp.add();
+    }
+
+    @Test
+    public void testStu(){
+        Stu stu = context.getBean("stu", Stu.class);
+        stu.show();
+        stu.showKecheng();
+    }
+
+    @Test
+    public void testBookk(){
+        Book1 book = context.getBean("book1", Book1.class);
+        book.show();
     }
 }
