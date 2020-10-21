@@ -5,6 +5,7 @@ import com.atguigu.spring5.Order;
 import com.atguigu.spring5.User;
 import com.atguigu.spring5.bean.Emp;
 import com.atguigu.spring5.collectiontype.Book1;
+import com.atguigu.spring5.collectiontype.Cources;
 import com.atguigu.spring5.collectiontype.Stu;
 import com.atguigu.spring5.service.UserService;
 import org.junit.Test;
@@ -24,8 +25,10 @@ public class TestSpring5 {
     @Test
     public void testBook(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean1.xml");
-        Book book = context.getBean("book",Book.class);
-        book.buy();
+        Book book1 = context.getBean("book",Book.class);
+        Book book2 = context.getBean("book",Book.class);
+        System.out.println(book1);
+        System.out.println(book2);
     }
 
     @Test
@@ -59,5 +62,11 @@ public class TestSpring5 {
     public void testBookk(){
         Book1 book = context.getBean("book1", Book1.class);
         book.show();
+    }
+
+    @Test
+    public void testFactoryBean(){
+        Cources mybean = context.getBean("mybean", Cources.class);
+        System.out.println(mybean.getCname());
     }
 }

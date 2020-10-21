@@ -8,7 +8,7 @@
 
     <bean id="user" class="com.atguigu.spring5.User"></bean>
 
-    <bean id="book" class="com.atguigu.spring5.Book">
+    <bean id="book" class="com.atguigu.spring5.Book" scope="prototype">
         <property name="bname" value="易筋经"></property>
         <property name="bauthor" value="达摩祖师"></property>
         <property name="address">
@@ -95,6 +95,8 @@
     <bean id="book1" class="com.atguigu.spring5.collectiontype.Book1">
         <property name="list" ref="bookList"></property>
     </bean>
+
+    <bean id = "mybean" class="com.atguigu.spring5.factoryBean.MyBean"></bean>
 
 
 

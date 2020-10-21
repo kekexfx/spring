@@ -52,5 +52,23 @@ IOC操作Bean管理
             1 先引入名称空间
             2 使用util标签，完成提取与注入
 
+IOC操作Bean管理（FactoryBean）
+    1 Spring中有两种bean，一种普通bean，一种是FactoryBean
+        普通bean：定义的类型就是返回的类型
+        工厂bean：定义的类型和返回的结果可以是不一样的
+            第一步：创建类，让这个类作为工厂bean，实现接口FactoryBean
+            第二部：实现接口里面的方法，在实现的方法中返回bean类型
+    2 bean的作用域
+        1 spring中能设置创建的bean是单实例还是多实例
+        2 默认情况下创建的bean是单实例对象
+        3 如何设置单实例还是多实例：属性：scope
+            1 scope：singleton，单实例，加载的时候就创建单实例对象
+            2 scope：prototype，多实例，不是在加载的时候创建对象，在调用getBean方法的时候创建一个新的对象
+            3 scope：request
+            4 scope：session
+    3 bean的生命周期
+        1 生命周期：
+
+
 
 
