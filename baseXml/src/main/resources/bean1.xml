@@ -3,101 +3,131 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:util="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/util/spring-context.xsd">
 
-    <bean id="user" class="com.atguigu.spring5.User"></bean>
+<!--    <bean id="user" class="com.atguigu.spring5.User"></bean>-->
 
-    <bean id="book" class="com.atguigu.spring5.Book" scope="prototype">
-        <property name="bname" value="易筋经"></property>
-        <property name="bauthor" value="达摩祖师"></property>
-        <property name="address">
-            <value><![CDATA[<<南京>>]]></value>
-        </property>
-    </bean>
+<!--    <bean id="book" class="com.atguigu.spring5.Book" scope="prototype">-->
+<!--        <property name="bname" value="易筋经"></property>-->
+<!--        <property name="bauthor" value="达摩祖师"></property>-->
+<!--        <property name="address">-->
+<!--            <value><![CDATA[<<南京>>]]></value>-->
+<!--        </property>-->
+<!--    </bean>-->
 
-<!--    <bean id="book" class="com.atguigu.spring5.Book" p:bname="kongfu" p:bauthor="me"></bean>-->
+<!--&lt;!&ndash;    <bean id="book" class="com.atguigu.spring5.Book" p:bname="kongfu" p:bauthor="me"></bean>&ndash;&gt;-->
 
-    <bean id="orders" class="com.atguigu.spring5.Order">
-        <constructor-arg name="oname" value="adc"></constructor-arg>
-        <constructor-arg name="address" value="china"></constructor-arg>
-    </bean>
+<!--    <bean id="orders" class="com.atguigu.spring5.Order">-->
+<!--        <constructor-arg name="oname" value="adc"></constructor-arg>-->
+<!--        <constructor-arg name="address" value="china"></constructor-arg>-->
+<!--    </bean>-->
 
-    <bean id="userService" class="com.atguigu.spring5.service.UserService">
-        <!--注入对象-->
-        <property name="userDao" ref="userDao"></property>
-    </bean>
+<!--    <bean id="userService" class="com.atguigu.spring5.service.UserService">-->
+<!--        &lt;!&ndash;注入对象&ndash;&gt;-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
 
-    <bean id="userDao" class="com.atguigu.spring5.dao.UserDao"></bean>
+<!--    <bean id="userDao" class="com.atguigu.spring5.dao.UserDao"></bean>-->
 
-    <bean name="emp" class="com.atguigu.spring5.bean.Emp">
-        <property name="ename" value="dog"></property>
-        <property name="gender" value="male"></property>
-        <!--设置对象类型的属性-->
-        <property name="dept">
-            <bean id="dept" class="com.atguigu.spring5.bean.Dept">
-                <property name="dname" value="baoanbu"></property>
-            </bean>
-        </property>
-    </bean>
+<!--    <bean name="emp" class="com.atguigu.spring5.bean.Emp">-->
+<!--        <property name="ename" value="dog"></property>-->
+<!--        <property name="gender" value="male"></property>-->
+<!--        &lt;!&ndash;设置对象类型的属性&ndash;&gt;-->
+<!--        <property name="dept">-->
+<!--            <bean id="dept" class="com.atguigu.spring5.bean.Dept">-->
+<!--                <property name="dname" value="baoanbu"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
 
-    <!--集合类型属性的注入-->
-    <bean id="stu" class="com.atguigu.spring5.collectiontype.Stu">
-        <property name="cources">
-            <array>
-                <value>java</value>
-                <value>mysql</value>
-                <value>spring</value>
-            </array>
-        </property>
-        <property name="list">
-            <array>
-                <value>tom</value>
-                <value>jerry</value>
-                <value>mac</value>
-            </array>
-        </property>
-        <property name="maps">
-            <map>
-                <entry key="JAVA" value="java"></entry>
-                <entry key="PHP" value="php"></entry>
-            </map>
-        </property>
-        <property name="sets">
-            <set>
-                <value>lulu</value>
-                <value>chenchen</value>
-                <value>dandan</value>
-            </set>
-        </property>
-        <!--注入集合类型，里面的是对象-->
-        <property name="kechengs">
-            <set>
-                <ref bean = "cource1"></ref>
-                <ref bean = "cource2"></ref>
-            </set>
-        </property>
-    </bean>
-    <bean id="cource1" class="com.atguigu.spring5.collectiontype.Cources">
-        <property name="cname" value="spring5框架"></property>
-    </bean>
-    <bean id="cource2" class="com.atguigu.spring5.collectiontype.Cources">
-        <property name="cname" value="mybatis框架"></property>
-    </bean>
+<!--    &lt;!&ndash;集合类型属性的注入&ndash;&gt;-->
+<!--    <bean id="stu" class="com.atguigu.spring5.collectiontype.Stu">-->
+<!--        <property name="cources">-->
+<!--            <array>-->
+<!--                <value>java</value>-->
+<!--                <value>mysql</value>-->
+<!--                <value>spring</value>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--        <property name="list">-->
+<!--            <array>-->
+<!--                <value>tom</value>-->
+<!--                <value>jerry</value>-->
+<!--                <value>mac</value>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--        <property name="maps">-->
+<!--            <map>-->
+<!--                <entry key="JAVA" value="java"></entry>-->
+<!--                <entry key="PHP" value="php"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="sets">-->
+<!--            <set>-->
+<!--                <value>lulu</value>-->
+<!--                <value>chenchen</value>-->
+<!--                <value>dandan</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        &lt;!&ndash;注入集合类型，里面的是对象&ndash;&gt;-->
+<!--        <property name="kechengs">-->
+<!--            <set>-->
+<!--                <ref bean = "cource1"></ref>-->
+<!--                <ref bean = "cource2"></ref>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <bean id="cource1" class="com.atguigu.spring5.collectiontype.Cources">-->
+<!--        <property name="cname" value="spring5框架"></property>-->
+<!--    </bean>-->
+<!--    <bean id="cource2" class="com.atguigu.spring5.collectiontype.Cources">-->
+<!--        <property name="cname" value="mybatis框架"></property>-->
+<!--    </bean>-->
 
-    <!--提取-->
-    <util:list id = "bookList">
-        <value>haha</value>
-        <value>heihei</value>
-        <value>henhen</value>
-    </util:list>
+<!--    &lt;!&ndash;提取&ndash;&gt;-->
+<!--    <util:list id = "bookList">-->
+<!--        <value>haha</value>-->
+<!--        <value>heihei</value>-->
+<!--        <value>henhen</value>-->
+<!--    </util:list>-->
 
-    <bean id="book1" class="com.atguigu.spring5.collectiontype.Book1">
-        <property name="list" ref="bookList"></property>
-    </bean>
+<!--    <bean id="book1" class="com.atguigu.spring5.collectiontype.Book1">-->
+<!--        <property name="list" ref="bookList"></property>-->
+<!--    </bean>-->
 
-    <bean id = "mybean" class="com.atguigu.spring5.factoryBean.MyBean"></bean>
+<!--    <bean id = "mybean" class="com.atguigu.spring5.factoryBean.MyBean"></bean>-->
 
+<!--    <bean id="orderss" class="com.atguigu.spring5.bean.Orders" init-method="initMethod" destroy-method="destoryMethod">-->
+<!--        <property name="oname" value="phone"></property>-->
+<!--    </bean>-->
 
+<!--    &lt;!&ndash;配置后置处理器,实现了BeanPostProcessor接口&ndash;&gt;-->
+<!--    <bean id="mybeanpost" class="com.atguigu.spring5.bean.MyBeanpost"></bean>-->
+
+    <!--自动装备-->
+    <bean id="xuesheng" class="com.atguigu.spring5.aotuwire.XueSheng" autowire="byName"></bean>
+
+    <bean id="banJi" class="com.atguigu.spring5.aotuwire.BanJi"></bean>
+
+<!--    <bean id="dataSOurce" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+<!--        <property name="url" value="jdbc:mysql://10.4.35.129:3306/db1"></property>-->
+<!--        <property name="username" value="root"></property>-->
+<!--        <property name="password" value="root"></property>-->
+<!--    </bean>-->
+
+    <!--引入外部属性文件-->
+    <context:property-placeholder location="jdbc.properties"/>
+
+        <bean id="dataSOurce" class="com.alibaba.druid.pool.DruidDataSource">
+            <property name="driverClassName" value="${prop.driverClass}"></property>
+            <property name="url" value="${prop.url}"></property>
+            <property name="username" value="${prop.username}"></property>
+            <property name="password" value="${prop.password}"></property>
+        </bean>
 
 </beans>
